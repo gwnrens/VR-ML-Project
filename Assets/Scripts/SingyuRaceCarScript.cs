@@ -9,6 +9,9 @@ public class SingyuRaceCarScript : MonoBehaviour
 
     private Rigidbody rb; // Referentie naar de Rigidbody component
 
+    private float moveInput = 0f; // Input voor vooruit/achteruit bewegen
+    private float rotateInput = 0f; // Input voor draaien
+
     void Start()
     {
         rb = GetComponent<Rigidbody>(); // Krijg de Rigidbody component van de auto
@@ -19,21 +22,36 @@ public class SingyuRaceCarScript : MonoBehaviour
         MoveCar();
     }
 
+    void Update()
+    {
+        // Verwerkt input van het toetsenbord elke frame
+        ProcessInput();
+    }
+
     void MoveCar()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal"); // Leest horizontale input
-
-        float moveVertical = Input.GetAxis("Vertical"); // Leest verticale input
-
-        // Gebruik transform.right in plaats van transform.forward als forward niet correct is
-        Vector3 movement = transform.right * moveVertical * speed * Time.deltaTime; // Past de juiste as aan
+        // Beweeg de auto vooruit of achteruit
+        Vector3 movement = transform.right * moveInput * speed * Time.deltaTime; // Pas de juiste as aan
         rb.MovePosition(rb.position + movement);
 
-        // Roteer op basis van horizontale input
-        float rotation = moveHorizontal * rotationSpeed * Time.deltaTime;
+        // Roteer de auto naar links of rechts
+        float rotation = rotateInput * rotationSpeed * Time.deltaTime;
         Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
         rb.MoveRotation(rb.rotation * turn);
     }
 
-}
+    void ProcessInput()
+    {
+        // Leest de toetsenbordinvoer voor beweging en rotatie
+        float moveVertical = Input.GetAxis("Vertical"); // Vooruit/achteruit
+        float moveHorizontal = Input.GetAxis("Horizontal"); // Draaien
 
+        SetInputs(moveVertical, moveHorizontal);
+    }
+
+    public void SetInputs(float move, float rotate)
+    {
+        moveInput = move;
+        rotateInput = rotate;
+    }
+}
