@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1717178371",
+        "python_version": "3.9.18 (main, Sep 11 2023, 14:09:26) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Hafid\\anaconda3\\envs\\MLAgents\\Scripts\\mlagents-learn config/trainer_config.yaml --run-id=autoagent --force",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cu110",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1717178436"
+    },
+    "total": 65.2149948,
+    "count": 1,
+    "self": 0.011504399999992643,
+    "children": {
+        "run_training.setup": {
+            "total": 0.14079609999999976,
+            "count": 1,
+            "self": 0.14079609999999976
+        },
+        "TrainerController.start_learning": {
+            "total": 65.0626943,
+            "count": 1,
+            "self": 0.0001697000000007165,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 65.0624963,
+                    "count": 1,
+                    "self": 65.0624963
+                },
+                "TrainerController._save_models": {
+                    "total": 2.829999999676147e-05,
+                    "count": 1,
+                    "self": 2.829999999676147e-05
+                }
+            }
+        }
+    }
+}

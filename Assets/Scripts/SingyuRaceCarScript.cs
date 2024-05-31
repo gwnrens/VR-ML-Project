@@ -31,7 +31,7 @@ public class SingyuRaceCarScript : MonoBehaviour
     void MoveCar()
     {
         // Beweeg de auto vooruit of achteruit
-        Vector3 movement = transform.right * moveInput * speed * Time.deltaTime; // Pas de juiste as aan
+        Vector3 movement = transform.forward * moveInput * speed * Time.deltaTime; // Voorwaarts bewegen
         rb.MovePosition(rb.position + movement);
 
         // Roteer de auto naar links of rechts
