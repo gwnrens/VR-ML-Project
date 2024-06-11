@@ -17,6 +17,7 @@ public class AutoAgent : Agent
     private int nextCheckpoint = 0;
 
     public LayerMask terrainLayer; // LayerMask for the terrain
+    public LayerMask wallLayer; // LayerMask for the walls
     private Vector3 initialPosition;
     private Quaternion initialRotation;
 
@@ -29,11 +30,19 @@ public class AutoAgent : Agent
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody not found on the GameObject.");
+            return;
+        }
         initialPosition = transform.position;
         initialRotation = transform.rotation;
 
-        // Instantiate the checkpoints from the prefab
-        InstantiateCheckpoints();
+        // Check if checkpoints are assigned in the Inspector
+        if (checkpoints.Length == 0)
+        {
+            Debug.LogError("Checkpoints not assigned in the Inspector.");
+        }
     }
 
     public override void OnEpisodeBegin()
@@ -77,22 +86,22 @@ public class AutoAgent : Agent
         moveInput = Mathf.Clamp(actionBuffers.ContinuousActions[0], -1f, 1f);
         rotateInput = Mathf.Clamp(actionBuffers.ContinuousActions[1], -1f, 1f);
 
+        // Debug logs for actions received
+        Debug.Log($"Move Input: {moveInput}, Rotate Input: {rotateInput}");
+
         // Move the car
         MoveCar();
 
-        // Reward the agent for approaching the checkpoint
-        AddRewardForCheckpointProximity();
-
-        // Reward the agent for staying on the terrain
+        // Check if the car is on the terrain
         CheckIfOnTerrain();
 
         // Increase the time since the last checkpoint
         timeSinceLastCheckpoint += Time.deltaTime;
 
-        // Penalize the agent if it takes too long over a checkpoint
+        // Penalize the agent if it takes too long to reach a checkpoint
         if (timeSinceLastCheckpoint > maxTimeForCheckpoint)
         {
-            AddReward(-1.0f); // Penalize for taking too long over a checkpoint
+            AddReward(-1.0f); // Penalize for taking too long to reach a checkpoint
             EndEpisode();
         }
     }
@@ -119,6 +128,9 @@ public class AutoAgent : Agent
         float rotation = rotateInput * rotationSpeed * Time.fixedDeltaTime;
         Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
         rb.MoveRotation(rb.rotation * turn);
+
+        // Debug logs for movement
+        Debug.Log($"Car Position: {rb.position}, Car Rotation: {rb.rotation}");
     }
 
     void OnTriggerEnter(Collider other)
@@ -127,49 +139,30 @@ public class AutoAgent : Agent
         {
             if (other.transform == checkpoints[nextCheckpoint])
             {
+                // Correct checkpoint reached
                 nextCheckpoint = (nextCheckpoint + 1) % checkpoints.Length;
                 AddReward(1.0f);
                 timeSinceLastCheckpoint = 0f; // Reset the timer when a checkpoint is reached
+
+                // Debug log for checkpoint
+                Debug.Log("Checkpoint reached, next checkpoint index: " + nextCheckpoint);
             }
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            AddReward(-0.5f);
+            Debug.Log("Hit a wall. Penalty applied.");
         }
     }
 
     void CheckIfOnTerrain()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f, terrainLayer))
-        {
-            // The car is on the terrain
-            AddReward(0.1f);
-        }
-        else
+        if (!Physics.Raycast(transform.position, Vector3.down, out hit, 1f, terrainLayer))
         {
             // The car is not on the terrain
             AddReward(-1.0f);
             EndEpisode();
-        }
-    }
-
-    private void InstantiateCheckpoints()
-    {
-        // Example of instantiating checkpoints from a prefab
-        // This must be adapted to your specific setup
-        int checkpointCount = 3; // Set number of checkpoints
-        checkpoints = new Transform[checkpointCount];
-        for (int i = 0; i < checkpointCount; i++)
-        {
-            // Instantiate the prefab at the initial position
-            checkpoints[i] = Instantiate(checkpointPrefab, new Vector3(i * 10, 0, 0), Quaternion.identity);
-        }
-    }
-
-    private void AddRewardForCheckpointProximity()
-    {
-        if (checkpoints.Length > 0)
-        {
-            float distanceToCheckpoint = Vector3.Distance(transform.position, checkpoints[nextCheckpoint].position);
-            float reward = Mathf.Max(0, 1 - (distanceToCheckpoint / 10.0f)); // Adjust the scale of the reward if necessary
-            AddReward(reward * 0.1f);
         }
     }
 }
