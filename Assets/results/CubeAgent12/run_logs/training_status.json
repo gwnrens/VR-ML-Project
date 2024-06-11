@@ -2,22 +2,22 @@
     "AutoAgentFinale": {
         "checkpoints": [
             {
-                "steps": 42332,
-                "file_path": "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-42332.onnx",
-                "reward": -1.0,
-                "creation_time": 1718109956.1860936,
+                "steps": 32461,
+                "file_path": "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-32461.onnx",
+                "reward": 1.0,
+                "creation_time": 1718133494.9023438,
                 "auxillary_file_paths": [
-                    "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-42332.pt"
+                    "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-32461.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 42332,
+            "steps": 32461,
             "file_path": "results\\CubeAgent12\\AutoAgentFinale.onnx",
-            "reward": -1.0,
-            "creation_time": 1718109956.1860936,
+            "reward": 1.0,
+            "creation_time": 1718133494.9023438,
             "auxillary_file_paths": [
-                "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-42332.pt"
+                "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-32461.pt"
             ]
         }
     },

@@ -6,13 +6,37 @@ TagManager:
   tags:
   - TrainingCheck
   - ResetCheck
+  - Checkpoint
+  - Car1
+  - Car2
+  - Car3
+  - Car4
+  - Car5
+  - Car6
+  - Car7
+  - Car8
+  - Car9
+  - Car10
+  - Car11
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - wall
   - Water
   - UI
+  - terain
+  - Car1
+  - Car2
+  - Car3
+  - Car4
+  - Car5
+  - Car6
+  - Car7
+  - Car8
+  - Car9
+  - Car10
+  - Car11
   - 
   - 
   - 
@@ -26,19 +50,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Z
   m_SortingLayers:
   - name: Default
     uniqueID: 0
