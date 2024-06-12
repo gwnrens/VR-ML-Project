@@ -2,22 +2,40 @@
     "AutoAgentFinale": {
         "checkpoints": [
             {
-                "steps": 32461,
-                "file_path": "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-32461.onnx",
-                "reward": 1.0,
-                "creation_time": 1718133494.9023438,
+                "steps": 161868,
+                "file_path": "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-161868.onnx",
+                "reward": 605.0,
+                "creation_time": 1718212357.1506672,
                 "auxillary_file_paths": [
-                    "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-32461.pt"
+                    "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-161868.pt"
+                ]
+            },
+            {
+                "steps": 499948,
+                "file_path": "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-499948.onnx",
+                "reward": null,
+                "creation_time": 1718214793.1567488,
+                "auxillary_file_paths": [
+                    "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-499948.pt"
+                ]
+            },
+            {
+                "steps": 500012,
+                "file_path": "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-500012.onnx",
+                "reward": null,
+                "creation_time": 1718214793.2116036,
+                "auxillary_file_paths": [
+                    "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-500012.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 32461,
+            "steps": 500012,
             "file_path": "results\\CubeAgent12\\AutoAgentFinale.onnx",
-            "reward": 1.0,
-            "creation_time": 1718133494.9023438,
+            "reward": null,
+            "creation_time": 1718214793.2116036,
             "auxillary_file_paths": [
-                "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-32461.pt"
+                "results\\CubeAgent12\\AutoAgentFinale\\AutoAgentFinale-500012.pt"
             ]
         }
     },
