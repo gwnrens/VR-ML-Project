@@ -1,0 +1,63 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1718462562",
+        "python_version": "3.9.18 (main, Sep 11 2023, 14:09:26) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Hafid\\anaconda3\\envs\\MLAgents\\Scripts\\mlagents-learn Config/RaceCar.yaml --run-id=mimicagent8 --train --force",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cu110",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1718462571"
+    },
+    "total": 8.4347318,
+    "count": 1,
+    "self": 0.009232700000000094,
+    "children": {
+        "run_training.setup": {
+            "total": 0.13881049999999995,
+            "count": 1,
+            "self": 0.13881049999999995
+        },
+        "TrainerController.start_learning": {
+            "total": 8.2866886,
+            "count": 1,
+            "self": 0.00013090000000026691,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 8.2847749,
+                    "count": 1,
+                    "self": 8.2845984,
+                    "children": {
+                        "demo_to_buffer": {
+                            "total": 0.0001765000000002459,
+                            "count": 1,
+                            "self": 1.2200000000461841e-05,
+                            "children": {
+                                "load_demonstration": {
+                                    "total": 0.00016429999999978406,
+                                    "count": 1,
+                                    "self": 0.00016429999999978406
+                                }
+                            }
+                        }
+                    }
+                },
+                "TrainerController._save_models": {
+                    "total": 0.0017827999999990851,
+                    "count": 1,
+                    "self": 0.00044419999999867343,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.0013386000000004117,
+                            "count": 1,
+                            "self": 0.0013386000000004117
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
