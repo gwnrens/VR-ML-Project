@@ -1,0 +1,74 @@
+{
+    "name": "VRInputActions",
+    "maps": [
+        {
+            "name": "VehicleControls",
+            "id": "32cdbf17-bf26-4bfc-a75c-d53b2676d147",
+            "actions": [
+                {
+                    "name": "DriveForward",
+                    "type": "Button",
+                    "id": "cae51fe1-2567-41e6-a9be-596cd9623d48",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DriveBackward",
+                    "type": "Button",
+                    "id": "018b53c5-7e17-490b-b7a1-4be5739be4a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Steer",
+                    "type": "Value",
+                    "id": "df6adb37-8729-4191-ac9b-7fcb1f205389",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "25a658d5-1543-4516-8158-731ef3111c6a",
+                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DriveForward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60b12bf4-801d-4b83-995f-923dde346284",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DriveBackward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a76cab97-4270-473f-9027-8c5eacf48249",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
