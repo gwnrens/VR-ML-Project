@@ -1,45 +1,85 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class VRCarController : MonoBehaviour
+public class VrRaceCarScript : MonoBehaviour
 {
-    public float speed = 10.0f;        // Snelheid van de auto
-    public float turnSpeed = 50.0f;    // Draaisnelheid van de auto
-    public SteeringWheelScript steeringWheel; // Referentie naar het stuurwiel script
+    public float moveSpeed = 10f; // Speed of the car
+    public float rotationSpeed = 100f; // Rotation speed of the car
 
     private Rigidbody rb;
+    private VRInputActions inputActions;
+    private float driveInput;
+    private float steerInput;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        inputActions = new VRInputActions();
+        Debug.Log("Awake: Rigidbody and VRInputActions initialized.");
+    }
+
+    void OnEnable()
+    {
+        inputActions.VehicleControls.Enable();
+        inputActions.VehicleControls.DriveForward.performed += ctx => DriveForward(ctx);
+        inputActions.VehicleControls.DriveBackward.performed += ctx => DriveBackward(ctx);
+        inputActions.VehicleControls.Steer.performed += ctx => Steer(ctx);
+        inputActions.VehicleControls.Steer.canceled += ctx => StopSteer(ctx); // Ensure steering stops when the joystick is released
+        Debug.Log("OnEnable: Input actions enabled.");
+    }
+
+    void OnDisable()
+    {
+        inputActions.VehicleControls.Disable();
+        Debug.Log("OnDisable: Input actions disabled.");
     }
 
     void FixedUpdate()
     {
-        HandleInput();
+        MoveCar();
+        SteerCar();
+        Debug.Log("FixedUpdate: Called MoveCar and SteerCar.");
     }
 
-    private void HandleInput()
+    private void DriveForward(InputAction.CallbackContext context)
     {
-        // Get trigger values for forward and backward driving
-        float driveForward = Input.GetAxis("RightTrigger"); // Right Trigger for moving forward
-        float driveBackward = Input.GetAxis("LeftTrigger"); // Left Trigger for moving backward
+        driveInput = context.ReadValue<float>();
+        Debug.Log("DriveForward: Drive input = " + driveInput);
+    }
 
-        // Calculate the current speed based on trigger input
-        float currentSpeed = driveForward * speed - driveBackward * speed;
+    private void DriveBackward(InputAction.CallbackContext context)
+    {
+        driveInput = -context.ReadValue<float>();
+        Debug.Log("DriveBackward: Drive input = " + driveInput);
+    }
 
-        // Get the joystick input for turning
-        float turn = Input.GetAxis("Horizontal"); // Horizontal axis of the joystick
+    private void Steer(InputAction.CallbackContext context)
+    {
+        steerInput = context.ReadValue<Vector2>().x;
+        Debug.Log("Steer: Steer input = " + steerInput);
+    }
 
-        // Move the car forward or backward
-        Vector3 movement = transform.forward * currentSpeed * Time.fixedDeltaTime;
+    private void StopSteer(InputAction.CallbackContext context)
+    {
+        steerInput = 0;
+        Debug.Log("StopSteer: Steering stopped.");
+    }
+
+    private void MoveCar()
+    {
+        Vector3 movement = transform.forward * driveInput * moveSpeed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
+        Debug.Log("MoveCar: Moving with input = " + driveInput + ", speed = " + moveSpeed);
+    }
 
-        // Only allow the car to turn if the steering wheel is being grabbed
-        if (steeringWheel.IsGrabbed())
+    private void SteerCar()
+    {
+        if (steerInput != 0)
         {
-            float turnAmount = turn * turnSpeed * Time.fixedDeltaTime;
-            Quaternion rotation = Quaternion.Euler(0f, turnAmount, 0f);
-            rb.MoveRotation(rb.rotation * rotation);
+            float rotation = steerInput * rotationSpeed * Time.deltaTime;
+            Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
+            rb.MoveRotation(rb.rotation * turn);
+            Debug.Log("SteerCar: Steering with input = " + steerInput + ", rotation = " + rotation);
         }
     }
 }
