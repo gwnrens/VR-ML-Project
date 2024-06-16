@@ -18,6 +18,9 @@ TagManager:
   - Car9
   - Car10
   - Car11
+  - walls
+  - Wall
+  - Check
   layers:
   - Default
   - TransparentFX

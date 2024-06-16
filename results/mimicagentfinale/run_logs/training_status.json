@@ -1,0 +1,65 @@
+{
+    "RaceCar": {
+        "checkpoints": [
+            {
+                "steps": 499994,
+                "file_path": "results\\mimicagentfinale\\RaceCar\\RaceCar-499994.onnx",
+                "reward": null,
+                "creation_time": 1718472905.7244473,
+                "auxillary_file_paths": [
+                    "results\\mimicagentfinale\\RaceCar\\RaceCar-499994.pt"
+                ]
+            },
+            {
+                "steps": 500058,
+                "file_path": "results\\mimicagentfinale\\RaceCar\\RaceCar-500058.onnx",
+                "reward": null,
+                "creation_time": 1718472905.9022002,
+                "auxillary_file_paths": [
+                    "results\\mimicagentfinale\\RaceCar\\RaceCar-500058.pt"
+                ]
+            },
+            {
+                "steps": 664364,
+                "file_path": "results\\mimicagentfinale\\RaceCar\\RaceCar-664364.onnx",
+                "reward": 0.0,
+                "creation_time": 1718474041.1840892,
+                "auxillary_file_paths": [
+                    "results\\mimicagentfinale\\RaceCar\\RaceCar-664364.pt"
+                ]
+            },
+            {
+                "steps": 669075,
+                "file_path": "results\\mimicagentfinale\\RaceCar\\RaceCar-669075.onnx",
+                "reward": 0.0,
+                "creation_time": 1718474196.330766,
+                "auxillary_file_paths": [
+                    "results\\mimicagentfinale\\RaceCar\\RaceCar-669075.pt"
+                ]
+            },
+            {
+                "steps": 712409,
+                "file_path": "results\\mimicagentfinale\\RaceCar\\RaceCar-712409.onnx",
+                "reward": null,
+                "creation_time": 1718474370.380992,
+                "auxillary_file_paths": [
+                    "results\\mimicagentfinale\\RaceCar\\RaceCar-712409.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 712409,
+            "file_path": "results\\mimicagentfinale\\RaceCar.onnx",
+            "reward": null,
+            "creation_time": 1718474370.380992,
+            "auxillary_file_paths": [
+                "results\\mimicagentfinale\\RaceCar\\RaceCar-712409.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

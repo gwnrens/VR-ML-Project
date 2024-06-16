@@ -1,0 +1,47 @@
+{
+    "RaceCar": {
+        "checkpoints": [
+            {
+                "steps": 499999,
+                "file_path": "results\\mimicagentrewards\\RaceCar\\RaceCar-499999.onnx",
+                "reward": -0.5,
+                "creation_time": 1718476112.0180326,
+                "auxillary_file_paths": [
+                    "results\\mimicagentrewards\\RaceCar\\RaceCar-499999.pt"
+                ]
+            },
+            {
+                "steps": 999949,
+                "file_path": "results\\mimicagentrewards\\RaceCar\\RaceCar-999949.onnx",
+                "reward": null,
+                "creation_time": 1718477633.617544,
+                "auxillary_file_paths": [
+                    "results\\mimicagentrewards\\RaceCar\\RaceCar-999949.pt"
+                ]
+            },
+            {
+                "steps": 1183654,
+                "file_path": "results\\mimicagentrewards\\RaceCar\\RaceCar-1183654.onnx",
+                "reward": null,
+                "creation_time": 1718478359.884115,
+                "auxillary_file_paths": [
+                    "results\\mimicagentrewards\\RaceCar\\RaceCar-1183654.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1183654,
+            "file_path": "results\\mimicagentrewards\\RaceCar.onnx",
+            "reward": null,
+            "creation_time": 1718478359.884115,
+            "auxillary_file_paths": [
+                "results\\mimicagentrewards\\RaceCar\\RaceCar-1183654.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
