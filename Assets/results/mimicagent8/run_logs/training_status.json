@@ -1,0 +1,29 @@
+{
+    "RaceCar": {
+        "checkpoints": [
+            {
+                "steps": 0,
+                "file_path": "results\\mimicagent8\\RaceCar\\RaceCar-0.onnx",
+                "reward": null,
+                "creation_time": 1718462571.0018165,
+                "auxillary_file_paths": [
+                    "results\\mimicagent8\\RaceCar\\RaceCar-0.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 0,
+            "file_path": "results\\mimicagent8\\RaceCar.onnx",
+            "reward": null,
+            "creation_time": 1718462571.0018165,
+            "auxillary_file_paths": [
+                "results\\mimicagent8\\RaceCar\\RaceCar-0.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "RaceCar": {
+        "checkpoints": [
+            {
+                "steps": 2499975,
+                "file_path": "results\\imitationlearningfinal\\RaceCar\\RaceCar-2499975.onnx",
+                "reward": null,
+                "creation_time": 1718505388.8589258,
+                "auxillary_file_paths": [
+                    "results\\imitationlearningfinal\\RaceCar\\RaceCar-2499975.pt"
+                ]
+            },
+            {
+                "steps": 2999969,
+                "file_path": "results\\imitationlearningfinal\\RaceCar\\RaceCar-2999969.onnx",
+                "reward": 2.3706179708242416,
+                "creation_time": 1718506944.3319204,
+                "auxillary_file_paths": [
+                    "results\\imitationlearningfinal\\RaceCar\\RaceCar-2999969.pt"
+                ]
+            },
+            {
+                "steps": 3499978,
+                "file_path": "results\\imitationlearningfinal\\RaceCar\\RaceCar-3499978.onnx",
+                "reward": null,
+                "creation_time": 1718508501.8139374,
+                "auxillary_file_paths": [
+                    "results\\imitationlearningfinal\\RaceCar\\RaceCar-3499978.pt"
+                ]
+            },
+            {
+                "steps": 3999975,
+                "file_path": "results\\imitationlearningfinal\\RaceCar\\RaceCar-3999975.onnx",
+                "reward": null,
+                "creation_time": 1718510057.0874252,
+                "auxillary_file_paths": [
+                    "results\\imitationlearningfinal\\RaceCar\\RaceCar-3999975.pt"
+                ]
+            },
+            {
+                "steps": 4000103,
+                "file_path": "results\\imitationlearningfinal\\RaceCar\\RaceCar-4000103.onnx",
+                "reward": null,
+                "creation_time": 1718510057.1714263,
+                "auxillary_file_paths": [
+                    "results\\imitationlearningfinal\\RaceCar\\RaceCar-4000103.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4000103,
+            "file_path": "results\\imitationlearningfinal\\RaceCar.onnx",
+            "reward": null,
+            "creation_time": 1718510057.1714263,
+            "auxillary_file_paths": [
+                "results\\imitationlearningfinal\\RaceCar\\RaceCar-4000103.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

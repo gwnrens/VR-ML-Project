@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1718461225",
+        "python_version": "3.9.18 (main, Sep 11 2023, 14:09:26) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\Hafid\\anaconda3\\envs\\MLAgents\\Scripts\\mlagents-learn Config/RaceCar.yaml --run-id=mimicagent --force",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cu110",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1718461290"
+    },
+    "total": 64.72855100000001,
+    "count": 1,
+    "self": 0.01368850000001487,
+    "children": {
+        "run_training.setup": {
+            "total": 0.15963989999999972,
+            "count": 1,
+            "self": 0.15963989999999972
+        },
+        "TrainerController.start_learning": {
+            "total": 64.5552226,
+            "count": 1,
+            "self": 0.0002492999999788026,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 64.55494080000001,
+                    "count": 1,
+                    "self": 64.55494080000001
+                },
+                "TrainerController._save_models": {
+                    "total": 3.2500000003210516e-05,
+                    "count": 1,
+                    "self": 3.2500000003210516e-05
+                }
+            }
+        }
+    }
+}

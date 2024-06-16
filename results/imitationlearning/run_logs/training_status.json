@@ -1,0 +1,56 @@
+{
+    "RaceCar": {
+        "checkpoints": [
+            {
+                "steps": 499952,
+                "file_path": "results\\imitationlearning\\RaceCar\\RaceCar-499952.onnx",
+                "reward": null,
+                "creation_time": 1718491208.3800251,
+                "auxillary_file_paths": [
+                    "results\\imitationlearning\\RaceCar\\RaceCar-499952.pt"
+                ]
+            },
+            {
+                "steps": 999997,
+                "file_path": "results\\imitationlearning\\RaceCar\\RaceCar-999997.onnx",
+                "reward": null,
+                "creation_time": 1718492884.3444896,
+                "auxillary_file_paths": [
+                    "results\\imitationlearning\\RaceCar\\RaceCar-999997.pt"
+                ]
+            },
+            {
+                "steps": 1499956,
+                "file_path": "results\\imitationlearning\\RaceCar\\RaceCar-1499956.onnx",
+                "reward": null,
+                "creation_time": 1718494469.8653584,
+                "auxillary_file_paths": [
+                    "results\\imitationlearning\\RaceCar\\RaceCar-1499956.pt"
+                ]
+            },
+            {
+                "steps": 1708528,
+                "file_path": "results\\imitationlearning\\RaceCar\\RaceCar-1708528.onnx",
+                "reward": null,
+                "creation_time": 1718495256.5698874,
+                "auxillary_file_paths": [
+                    "results\\imitationlearning\\RaceCar\\RaceCar-1708528.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1708528,
+            "file_path": "results\\imitationlearning\\RaceCar.onnx",
+            "reward": null,
+            "creation_time": 1718495256.5698874,
+            "auxillary_file_paths": [
+                "results\\imitationlearning\\RaceCar\\RaceCar-1708528.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
