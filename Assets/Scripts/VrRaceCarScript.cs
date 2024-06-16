@@ -23,8 +23,8 @@ public class VrRaceCarScript : MonoBehaviour
         inputActions.VehicleControls.Enable();
         inputActions.VehicleControls.DriveForward.performed += ctx => DriveForward(ctx);
         inputActions.VehicleControls.DriveBackward.performed += ctx => DriveBackward(ctx);
-        inputActions.VehicleControls.Steer.performed += ctx => Steer(ctx);
-        inputActions.VehicleControls.Steer.canceled += ctx => StopSteer(ctx); // Ensure steering stops when the joystick is released
+        inputActions.VehicleControls.Steer.performed += ctx => steerInput = ctx.ReadValue<Vector2>().x;
+        inputActions.VehicleControls.Steer.canceled += ctx => steerInput = 0;
         Debug.Log("OnEnable: Input actions enabled.");
     }
 
@@ -53,18 +53,6 @@ public class VrRaceCarScript : MonoBehaviour
         Debug.Log("DriveBackward: Drive input = " + driveInput);
     }
 
-    private void Steer(InputAction.CallbackContext context)
-    {
-        steerInput = context.ReadValue<Vector2>().x;
-        Debug.Log("Steer: Steer input = " + steerInput);
-    }
-
-    private void StopSteer(InputAction.CallbackContext context)
-    {
-        steerInput = 0;
-        Debug.Log("StopSteer: Steering stopped.");
-    }
-
     private void MoveCar()
     {
         Vector3 movement = transform.forward * driveInput * moveSpeed * Time.deltaTime;
@@ -74,12 +62,9 @@ public class VrRaceCarScript : MonoBehaviour
 
     private void SteerCar()
     {
-        if (steerInput != 0)
-        {
-            float rotation = steerInput * rotationSpeed * Time.deltaTime;
-            Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
-            rb.MoveRotation(rb.rotation * turn);
-            Debug.Log("SteerCar: Steering with input = " + steerInput + ", rotation = " + rotation);
-        }
+        float rotation = steerInput * rotationSpeed * Time.deltaTime;
+        Quaternion turn = Quaternion.Euler(0f, rotation, 0f);
+        rb.MoveRotation(rb.rotation * turn);
+        Debug.Log("SteerCar: Steering with input = " + steerInput + ", rotation = " + rotation);
     }
 }
